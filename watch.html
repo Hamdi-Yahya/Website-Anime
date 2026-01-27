@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beannn - Streaming Anime Super Lengkap dengan Subtitle Indonesia">
+    <title>Watch Anime - Beannn</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNavbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-outlet"></i>
+                <span class="fw-bold brand-text">Beannn</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-fill me-1"></i>Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ongoing-section">
+                            <i class="bi bi-play-circle me-1"></i>Ongoing
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#completed-section">
+                            <i class="bi bi-check-circle me-1"></i>Completed
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="genre.html" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-grid-fill me-1"></i>Genre
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="genre.html?id=action">Action</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=romance">Romance</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=comedy">Comedy</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=fantasy">Fantasy</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=adventure">Adventure</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=shounen">Shounen</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="genre.html"><i class="bi bi-grid me-1"></i>Semua
+                                    Genre</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <form class="d-flex search-form" role="search">
+                            <div class="input-group">
+                                <input class="form-control search-input" type="search" placeholder="Cari anime..."
+                                    id="searchInput">
+                                <button class="btn btn-pink" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="watch-main">
+        <div class="container">
+
+            <nav aria-label="breadcrumb" class="mb-3">
+                <ol class="breadcrumb">
+
+                    <li class="breadcrumb-item">
+                        <a href="index.html" class="text-pink">Beranda</a>
+                    </li>
+
+                    <li class="breadcrumb-item">
+                        <a href="#" class="text-pink" id="breadcrumbAnime">Anime</a>
+                    </li>
+
+                    <li class="breadcrumb-item active text-light" id="breadcrumbEpisode">
+                        Episode
+                    </li>
+                </ol>
+            </nav>
+
+            <div class="row g-4">
+
+                <div class="col-lg-8 col-12">
+
+                    <div class="video-container mb-4">
+
+                        <div class="ratio ratio-16x9 video-wrapper">
+
+                            <iframe id="videoPlayer" src="" allowfullscreen="true" webkitallowfullscreen="true"
+                                mozallowfullscreen="true"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                                frameborder="0" scrolling="no" style="width: 100%; height: 100%;">
+                            </iframe>
+
+                            <div class="video-loading" id="videoLoading">
+                                <div class="spinner-border text-pink" role="status">
+                                    <span class="visually-hidden">Loading video...</span>
+                                </div>
+                                <p class="mt-2 mb-0">Memuat video...</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="episode-navigation mb-4">
+                        <div class="row g-2">
+
+                            <div class="col-6">
+                                <a href="#" class="btn btn-outline-pink w-100 d-none" id="prevEpisode">
+                                    <i class="bi bi-chevron-left me-1"></i>
+                                    <span class="d-none d-sm-inline">Episode Sebelumnya</span>
+                                    <span class="d-inline d-sm-none">Prev</span>
+                                </a>
+                            </div>
+
+                            <div class="col-6">
+                                <a href="#" class="btn btn-pink w-100 d-none" id="nextEpisode">
+                                    <span class="d-none d-sm-inline">Episode Selanjutnya</span>
+                                    <span class="d-inline d-sm-none">Next</span>
+                                    <i class="bi bi-chevron-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="watch-card mb-4">
+
+                        <h4 class="episode-title mb-2" id="episodeTitle">
+                            Memuat...
+                        </h4>
+
+                        <p class="text-muted mb-3" id="episodeReleaseTime">
+                            <i class="bi bi-clock me-1"></i>
+                            <span>Loading...</span>
+                        </p>
+
+                        <div class="episode-meta" id="episodeMeta">
+
+                        </div>
+                    </div>
+
+                    <div class="watch-card mb-4">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-hdd-stack-fill text-pink me-2"></i>
+                            Pilih Server
+                        </h5>
+
+                        <ul class="nav nav-pills quality-tabs mb-3" id="qualityTabs" role="tablist">
+
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" type="button">
+                                    <span class="spinner-border spinner-border-sm me-1"></span>
+                                    Loading...
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content" id="qualityTabContent">
+
+                            <div class="text-center py-3">
+                                <div class="spinner-border text-pink" role="status">
+                                    <span class="visually-hidden">Loading servers...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="watch-card mb-4">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-download text-pink me-2"></i>
+                            Download Episode
+                        </h5>
+
+                        <div class="accordion download-accordion" id="downloadAccordion">
+
+                            <div class="text-center py-3">
+                                <div class="spinner-border spinner-border-sm text-pink" role="status">
+                                    <span class="visually-hidden">Loading download links...</span>
+                                </div>
+                                <p class="text-muted small mb-0 mt-2">Memuat link download...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12">
+
+                    <div class="watch-card episode-list-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-collection-play-fill text-pink me-2"></i>
+                            Daftar Episode
+                        </h5>
+
+                        <div class="episode-info-mini mb-3" id="episodeInfoMini">
+
+                        </div>
+
+                        <div class="episode-scroll-list" id="episodeScrollList">
+
+                            <div class="text-center py-4">
+                                <div class="spinner-border text-pink" role="status">
+                                    <span class="visually-hidden">Loading episodes...</span>
+                                </div>
+                                <p class="text-muted mt-2 mb-0 small">Memuat daftar episode...</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 pt-3 border-top border-secondary">
+                            <a href="#" class="btn btn-outline-pink w-100" id="linkToDetail">
+                                <i class="bi bi-info-circle me-1"></i>
+                                Lihat Detail Anime
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="footer-brand d-flex align-items-center mb-3" href="index.html">
+                        <i class="bi bi-outlet me-2 text-pink fs-3"></i>
+                        <span class="fw-bold fs-4 brand-text">Beannn</span>
+                    </a>
+
+                    <p class="text-muted">
+                        Platform streaming anime gratis Terlengkap
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Navigasi</h6>
+                    <ul class="footer-link">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#ongoing-section">Ongoing</a></li>
+                        <li><a href="#completed-section">Completed</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Genre Populer</h6>
+                    <ul class="footer-link">
+                        <li><a href="genre.html?id=action">Action</a></li>
+                        <li><a href="genre.html?id=romance">Romance</a></li>
+                        <li><a href="genre.html?id=comedy">Comedy</a></li>
+                        <li><a href="genre.html?id=fantasy">Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Informasi</h6>
+                    <p class="text-muted small">
+                        Web ini dibuat agar kalian bisa menonton anime secara gratis dengan subtitle Indonesia
+                    </p>
+                    <p class="text-muted small mb-0">
+                        <i class="bi bi-code-slash me-1"></i>
+                        Dibuat dengan HTML Bootstarp dan Javascript
+                    </p>
+                </div>
+
+                <hr class="my-4 border-secondary">
+
+                <div class="row-align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-muted small mb-0">
+                            &copy; 2026 Beannn. By
+                            <i class="bi bi-heart-fill text-pink"></i>Hamdi
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btn btn-pink btn-back-to-top" id="backToTop" title="Kembali ke Atas">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

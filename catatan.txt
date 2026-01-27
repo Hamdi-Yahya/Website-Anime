@@ -1,0 +1,19 @@
+/* 
+Syntak
+
+1. element selector
+2. selector class (.)
+3. id selector (#)
+4. kombinasi selector ( . ) 
+5. pseudu-class (:)
+6. pseudo-element (::)
+
+*/
+
+/* 
+Ukuran
+
+1. absolute = ukuran yang tidak bisa diubah (px,pt,cm,mm,inc)
+
+2. relative = ukuran yang bisa diubah (%,em,rem,vh,)
+*/

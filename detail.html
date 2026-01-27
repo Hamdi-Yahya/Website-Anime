@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beannn - Streaming Anime Super Lengkap dengan Subtitle Indonesia">
+    <title>Detail Anime - Beannn</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNavbar">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="bi bi-outlet"></i>
+                <span class="fw-bold brand-text">Beannn</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            <i class="bi bi-house-fill me-1"></i>Beranda
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#ongoing-section">
+                            <i class="bi bi-play-circle me-1"></i>Ongoing
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html#completed-section">
+                            <i class="bi bi-check-circle me-1"></i>Completed
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="genre.html" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-grid-fill me-1"></i>Genre
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="genre.html?id=action">Action</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=romance">Romance</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=comedy">Comedy</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=fantasy">Fantasy</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=adventure">Adventure</a></li>
+                            <li><a class="dropdown-item" href="genre.html?id=shounen">Shounen</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="genre.html"><i class="bi bi-grid me-1"></i>Semua
+                                    Genre</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item ms-lg-3">
+                        <form class="d-flex search-form" role="search">
+                            <div class="input-group">
+                                <input class="form-control search-input" type="search" placeholder="Cari anime..."
+                                    id="searchInput">
+                                <button class="btn btn-pink" type="submit">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="detail-header" id="detailHeader">
+
+        <div class="detail-bg" id="detailBg"></div>
+
+        <div class="detail-overlay"></div>
+
+        <div class="container detail-header-content">
+            <div class="row align-items-end g-4">
+
+                <div class="col-md-3 col-6">
+
+                    <div class="poster-card">
+
+                        <img src="" alt="Poster Anime" class="img-fluid poster-img" id="animePoster">
+
+                        <div class="poster-score">
+                            <i class="bi bi-star-fill"></i>
+                            <span id="animeScore">N/A</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9 col-12">
+
+                    <nav aria-label="breadcrumb" class="mb-3">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="index.html" class="text-pink">Beranda</a>
+                            </li>
+                            <li class="breadcrumb-item active text-light" id="breadcrumbTitle">
+                                Detail Anime
+                            </li>
+                        </ol>
+                    </nav>
+
+                    <span class="badge bg-pink mb-2" id="animeStatus">Loading...</span>
+
+                    <h1 class="detail-title mb-2" id="animeTitle">Loading...</h1>
+
+                    <p class="text-muted mb-3" id="animeJapanese"></p>
+
+                    <div class="detail-meta mb-3" id="animeMeta">
+
+                        <span class="badge bg-secondary me-2">
+                            <i class="bi bi-tv me-1"></i>
+                            <span id="animeType">TV</span>
+                        </span>
+
+                        <span class="badge bg-secondary me-2">
+                            <i class="bi bi-collection-play me-1"></i>
+                            <span id="animeEpisodes">0</span> Episode
+                        </span>
+
+                        <span class="badge bg-secondary me-2">
+                            <i class="bi bi-clock me-1"></i>
+                            <span id="animeDuration">Unknown</span>
+                        </span>
+
+                        <span class="badge bg-secondary">
+                            <i class="bi bi-calendar me-1"></i>
+                            <span id="animeAired">Unknown</span>
+                        </span>
+                    </div>
+
+                    <div class="genre-list mb-4" id="genreList">
+
+                    </div>
+
+                    <div class="detail-actions">
+
+                        <a href="#" class="btn btn-pink btn-lg me-2" id="watchFirstEpisode">
+                            <i class="bi bi-play-fill me-1"></i>Tonton Episode 1
+                        </a>
+
+                        <a href="#" class="btn btn-outline-light btn-lg d-none" id="downloadBatch">
+                            <i class="bi bi-download me-1"></i>Download Batch
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="detail-content py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <div class="col-lg-8 col-12">
+
+                    <div class="detail-card mb-4">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-book text-pink me-2"></i>
+                            Sinopsis
+                        </h5>
+
+                        <div class="synopsis-text" id="animeSynopsis">
+                            <p class="text-muted">Memuat sinopsis...</p>
+                        </div>
+
+                        <div class="connections mt-4 d-none" id="animeConnections">
+                            <h6 class="text-pink mb-2">
+                                <i class="bi bi-link-45deg me-1"></i>Anime Terkait
+                            </h6>
+                            <div class="connection-list" id="connectionList">
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detail-card mb-4">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-collection-play-fill text-pink me-2"></i>
+                            Daftar Episode
+                        </h5>
+
+                        <div class="episode-grid" id="episodeList">
+
+                            <div class="text-center py-4">
+                                <div class="spinner-border text-pink" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="text-muted mt-2 mb-0">Memuat daftar episode...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-12">
+
+                    <div class="detail-card info-card mb-4">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-info-circle-fill text-pink me-2"></i>
+                            Informasi
+                        </h5>
+
+                        <ul class="info-list">
+
+                            <li>
+                                <span class="info-label">Studio</span>
+                                <span class="info-value" id="animeStudio">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Produser</span>
+                                <span class="info-value" id="animeProducers">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Tipe</span>
+                                <span class="info-value" id="animeTypeInfo">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Status</span>
+                                <span class="info-value" id="animeStatusInfo">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Episode</span>
+                                <span class="info-value" id="animeEpisodeCount">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Durasi</span>
+                                <span class="info-value" id="animeDurationInfo">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Tayang</span>
+                                <span class="info-value" id="animeAiredInfo">-</span>
+                            </li>
+
+                            <li>
+                                <span class="info-label">Score</span>
+                                <span class="info-value text-warning" id="animeScoreInfo">
+                                    <i class="bi bi-star-fill me-1"></i>-
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="detail-card">
+                        <h5 class="card-title mb-3">
+                            <i class="bi bi-hand-thumbs-up-fill text-pink me-2"></i>
+                            Rekomendasi
+                        </h5>
+
+                        <div class="recommendation-grid" id="recommendationList">
+
+                            <div class="text-center py-3">
+                                <div class="spinner-border spinner-border-sm text-pink" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <a class="footer-brand d-flex align-items-center mb-3" href="index.html">
+                        <i class="bi bi-outlet me-2 text-pink fs-3"></i>
+                        <span class="fw-bold fs-4 brand-text">Beannn</span>
+                    </a>
+
+                    <p class="text-muted">
+                        Platform streaming anime gratis Terlengkap
+                    </p>
+
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Navigasi</h6>
+                    <ul class="footer-link">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="#ongoing-section">Ongoing</a></li>
+                        <li><a href="#completed-section">Completed</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Genre Populer</h6>
+                    <ul class="footer-link">
+                        <li><a href="genre.html?id=action">Action</a></li>
+                        <li><a href="genre.html?id=romance">Romance</a></li>
+                        <li><a href="genre.html?id=comedy">Comedy</a></li>
+                        <li><a href="genre.html?id=fantasy">Fantasy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="footer-title mb-3">Informasi</h6>
+                    <p class="text-muted small">
+                        Web ini dibuat agar kalian bisa menonton anime secara gratis dengan subtitle Indonesia
+                    </p>
+                    <p class="text-muted small mb-0">
+                        <i class="bi bi-code-slash me-1"></i>
+                        Dibuat dengan HTML Bootstarp dan Javascript
+                    </p>
+                </div>
+
+                <hr class="my-4 border-secondary">
+
+                <div class="row-align-items-center">
+                    <div class="col-md-6 text-center text-md-start">
+                        <p class="text-muted small mb-0">
+                            &copy; 2026 Beannn. By
+                            <i class="bi bi-heart-fill text-pink"></i>Hamdi
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button class="btn btn-pink btn-back-to-top" id="backToTop" title="Kembali ke Atas">
+        <i class="bi bi-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
