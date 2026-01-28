@@ -594,7 +594,7 @@ async function initHomepage() {
         const heroInfoBtn = document.getElementById("heroInfoBtn");
         const heroSection = document.getElementById("heroSection");
 
-        if (heroTitle) heroTitle.textContent = anime.title || "NezuPlay";
+        if (heroTitle) heroTitle.textContent = anime.title || "Beannn";
         if (heroDescription) {
             heroDescription.textContent = `Tonton ${anime.title} subtitle Indonesia. ${anime.episodes || 0} episode tersedia.`;
         }
@@ -669,11 +669,11 @@ async function initDetailPage() {
         const anime = response.data;
         state.currentAnime = anime;
 
-        document.title = `${anime.title} - NezuPlay`;
+        document.title = `${anime.title} - Beannn`;
 
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {
-            metaDesc.content = `Nonton ${anime.title} subtitle Indonesia di NezuPlay`;
+            metaDesc.content = `Nonton ${anime.title} subtitle Indonesia di Beannn`;
         }
 
         updateDetailHeader(anime);
@@ -861,7 +861,7 @@ async function initWatchPage() {
         const episode = response.data;
         state.currentEpisode = episode;
 
-        document.title = `${episode.title} - NezuPlay`;
+        document.title = `${episode.title} - Beannn`;
 
         updateVideoPlayer(episode);
         updateEpisodeInfo(episode);
@@ -1313,7 +1313,7 @@ async function initGenrePage() {
 
         window.history.pushState({}, "", `?id=${genreId}`);
 
-        document.title = `${genreTitle} - NezuPlay`;
+        document.title = `${genreTitle} - Beannn`;
         if (genrePageTitle) {
             genrePageTitle.innerHTML = `<i class="bi bi-tag-fill text-pink me-2"></i>${genreTitle}`;
         }
@@ -1423,7 +1423,7 @@ async function initSearchPage() {
         state.searchKeyword = keyword.trim();
 
         try {
-            document.title = `Pencarian: ${state.searchKeyword} - NezuPlay`;
+            document.title = `Pencarian: ${state.searchKeyword} - Beannn`;
             if (searchPageTitle) {
                 searchPageTitle.innerHTML = `<i class="bi bi-search text-pink me-2"></i>Hasil Pencarian`;
             }
